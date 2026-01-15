@@ -16,17 +16,17 @@ This project utilizes a customized design system focused on visual depth, tactil
 
 ### 🎨 Aesthetic Pillars
 
-- **Luxury Noise Texture**: A custom overlay providing a sophisticated grain that breaks digital flatnesses.
-- **Dynamic Oracles**: Pulsing, reactive background glows (Purple, Green, Blue) that respond to page state.
-- **High-End Glassmorphism**: High-performance backdrop blurs with precision gradient border glows.
-- **Atmospheric Illumination**: A soft radial gradient focus that provides a premium interactive presence.
+- **Liquid Mesh Gradient**: A sophisticated "midnight" background system using synchronized radial gradients with a flowing mesh animation.
+- **Glassmorphic fragments**: Dynamically generated geometric shapes that float and rotate based on scroll depth, creating a 3D parallax environment.
+- **Luxury Noise Texture**: A refined `soft-light` noise overlay that provides a premium analog grain to digital surfaces.
+- **High-End Glassmorphism 2.0**: Advanced backdrop blurs featuring **Dynamic Border Glows** that track the cursor position around the card's perimeter.
 
 ### ⚡ Interactive Micro-animations
 
-- **Magnetic Navigation**: Elements feature a localized magnetic field that pulls towards the cursor.
-- **3D Card Dynamics**: Real-time perspective transforms providing a tangible physical presence.
-- **Adaptive Shine**: Simulated light reflections that track cursor velocity and position.
-- **Progress Tracking**: A hardware-accelerated gradient tracker integrated into the global navigation.
+- **Dual-Layer Cursor Glow**: A specialized hardware-accelerated lighting system that provides smooth, high-fidelity cursor tracking with an atmospheric pulse.
+- **Magnetic Navigation**: Elements feature a localized magnetic field that pulls towards the cursor for high-intent interactivity.
+- **3D Card Dynamics**: Real-time perspective transforms combined with rotational border lighting for a tangible physical presence.
+- **Kinetic Typography**: Glitch-animated and gradient-masked headings that respond to hover states.
 
 ---
 
