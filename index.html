@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Burak Studio - Premium digital solutions for modern businesses. Web design, development, and digital transformation services." />
+    <meta
+      name="keywords"
+      content="web design, web development, digital agency, burak studio" />
+    <title>Burak Studio | Premium Digital Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Premium UI Foundations -->
+    <div class="noise-overlay"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Decorative Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="container nav-container">
+        <div class="logo">
+          <img src="logo.png" alt="Burak Studio Logo" class="logo-img" />
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link cta-btn">Contact Us</a></li>
+        </ul>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+
+      <div class="container hero-content">
+        <div class="hero-text reveal">
+          <h1 class="hero-title">
+            Crafting Digital
+            <span class="text-gradient">Excellence</span>
+          </h1>
+          <p class="hero-subtitle">
+            Transform your vision into stunning digital experiences with
+            cutting-edge design and development
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="floating-card glass-panel">
+            <div class="card-icon">🚀</div>
+            <h3>Innovation</h3>
+          </div>
+          <div class="floating-card glass-panel">
+            <div class="card-icon">💎</div>
+            <h3>Premium Quality</h3>
+          </div>
+          <div class="floating-card glass-panel">
+            <div class="card-icon">⚡</div>
+            <h3>Fast Delivery</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">
+            Our <span class="text-gradient">Services</span>
+          </h2>
+          <p class="section-subtitle">
+            Comprehensive digital solutions tailored to your needs
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>
+              Beautiful, intuitive interfaces that users love. We create
+              experiences that convert.
+            </p>
+            <ul class="service-features">
+              <li>User Research</li>
+              <li>Wireframing & Prototyping</li>
+              <li>Visual Design</li>
+              <li>Design Systems</li>
+            </ul>
+          </div>
+
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>
+              Full-stack development with modern technologies and best
+              practices.
+            </p>
+            <ul class="service-features">
+              <li>Responsive Websites</li>
+              <li>Web Applications</li>
+              <li>E-commerce Solutions</li>
+              <li>API Integration</li>
+            </ul>
+          </div>
+
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">📱</div>
+            <h3>Mobile Apps</h3>
+            <p>
+              Native and cross-platform mobile applications for iOS and Android.
+            </p>
+            <ul class="service-features">
+              <li>iOS Development</li>
+              <li>Android Development</li>
+              <li>React Native</li>
+              <li>Flutter</li>
+            </ul>
+          </div>
+
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">🔍</div>
+            <h3>SEO & Marketing</h3>
+            <p>
+              Boost your online visibility and drive organic traffic to your
+              business.
+            </p>
+            <ul class="service-features">
+              <li>SEO Optimization</li>
+              <li>Content Strategy</li>
+              <li>Analytics & Tracking</li>
+              <li>Social Media</li>
+            </ul>
+          </div>
+
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">⚙️</div>
+            <h3>Brand Identity</h3>
+            <p>
+              Create a memorable brand that stands out in the digital landscape.
+            </p>
+            <ul class="service-features">
+              <li>Logo Design</li>
+              <li>Brand Guidelines</li>
+              <li>Marketing Materials</li>
+              <li>Brand Strategy</li>
+            </ul>
+          </div>
+
+          <div class="service-card glass-panel reveal">
+            <div class="service-icon">🛡️</div>
+            <h3>Maintenance & Support</h3>
+            <p>
+              Ongoing support to keep your digital products running smoothly.
+            </p>
+            <ul class="service-features">
+              <li>24/7 Monitoring</li>
+              <li>Regular Updates</li>
+              <li>Bug Fixes</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">
+            Featured <span class="text-gradient">Projects</span>
+          </h2>
+          <p class="section-subtitle">
+            Showcasing our latest work and success stories
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item glass-panel reveal">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder">
+                <span class="portfolio-icon">🏢</span>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Corporate Website Redesign</h3>
+              <p>
+                Complete brand overhaul and website redesign for a Fortune 500
+                company
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">UI/UX</span>
+                <span class="tag">Development</span>
+                <span class="tag">Branding</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item glass-panel reveal">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder">
+                <span class="portfolio-icon">🛒</span>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>E-commerce Platform</h3>
+              <p>
+                Full-featured online store with payment integration and
+                inventory management
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">E-commerce</span>
+                <span class="tag">Full-Stack</span>
+                <span class="tag">Payment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item glass-panel reveal">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder">
+                <span class="portfolio-icon">📊</span>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Analytics Dashboard</h3>
+              <p>
+                Real-time data visualization dashboard for business intelligence
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Dashboard</span>
+                <span class="tag">Data Viz</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item glass-panel reveal">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder">
+                <span class="portfolio-icon">🎵</span>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Music Streaming App</h3>
+              <p>
+                Cross-platform mobile app with offline playback and social
+                features
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">React Native</span>
+                <span class="tag">Streaming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content reveal">
+          <div class="about-text">
+            <h2 class="section-title">
+              About <span class="text-gradient">Burak Studio</span>
+            </h2>
+            <p class="about-description">
+              We are a team of passionate designers and developers dedicated to
+              creating exceptional digital experiences. With years of expertise
+              in web design, development, and digital strategy, we help
+              businesses transform their online presence.
+            </p>
+            <p class="about-description">
+              Our approach combines creativity with technical excellence,
+              ensuring every project we deliver not only looks stunning but
+              performs flawlessly. We believe in building long-term partnerships
+              with our clients, understanding their unique challenges, and
+              crafting solutions that drive real results.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-item glass-panel">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-item glass-panel">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Happy Clients</div>
+              </div>
+              <div class="stat-item glass-panel">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+              <div class="stat-item glass-panel">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">
+            Let's Create <span class="text-gradient">Together</span>
+          </h2>
+          <p class="section-subtitle">
+            Ready to start your next project? Get in touch with us today
+          </p>
+        </div>
+
+        <div class="contact-content reveal">
+          <form class="contact-form glass-panel" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="John Doe" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="john@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="Project Inquiry" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="Tell us about your project..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message
+            </button>
+          </form>
+
+          <div class="contact-info">
+            <div class="info-card glass-panel">
+              <div class="info-icon">📧</div>
+              <h3>Email Us</h3>
+              <p>hello@burakstudio.com</p>
+            </div>
+
+            <div class="info-card glass-panel">
+              <div class="info-icon">📱</div>
+              <h3>Call Us</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+
+            <div class="info-card glass-panel">
+              <div class="info-icon">📍</div>
+              <h3>Visit Us</h3>
+              <p>123 Digital Street<br />Tech City, TC 12345</p>
+            </div>
+
+            <div class="social-links glass-panel">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+                <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                <a href="#" class="social-icon" aria-label="GitHub">💻</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Burak Studio Logo" class="logo-img" />
+            <p>Premium Digital Solutions</p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#services">UI/UX Design</a></li>
+                <li><a href="#services">Web Development</a></li>
+                <li><a href="#services">Mobile Apps</a></li>
+                <li><a href="#services">SEO & Marketing</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Burak Studio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
