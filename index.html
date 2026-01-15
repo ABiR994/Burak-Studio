@@ -27,10 +27,25 @@
     <div class="noise-overlay"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Decorative Glows -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <!-- Decorative Glows with SVG Filter -->
+    <div class="blob-engine">
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+      <div class="bg-glow bg-glow-3"></div>
+    </div>
+    
+    <div id="geometricFragments" class="geometric-fragments"></div>
+
+    <!-- SVG Filters for Advanced Effects -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-filters" style="display: none;">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -12" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+      </defs>
+    </svg>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -61,12 +76,14 @@
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
 
-      <div class="container hero-content">
-        <div class="hero-text reveal">
-          <h1 class="hero-title">
-            Crafting Digital
-            <span class="text-gradient">Excellence</span>
-          </h1>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title reveal" data-reveal="construction">
+              <span class="kinetic-text">Transforming</span>
+              <span class="kinetic-text gradient-text">Ideas into</span>
+              <span class="kinetic-text">Digital Reality</span>
+            </h1>
           <p class="hero-subtitle">
             Transform your vision into stunning digital experiences with
             cutting-edge design and development

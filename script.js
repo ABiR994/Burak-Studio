@@ -217,33 +217,53 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// 2. Custom Cursor Glow
 const createCursorGlow = () => {
   if (window.innerWidth <= 768) return;
   
-  const cursor = document.createElement('div');
-  cursor.className = 'cursor-glow';
+  // Create wrapper for movement
+  const cursorWrapper = document.createElement('div');
+  cursorWrapper.className = 'cursor-wrapper';
   
-  Object.assign(cursor.style, {
-    position: 'fixed',
-    width: '400px',
-    height: '400px',
-    borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%)',
-    pointerEvents: 'none',
-    zIndex: '9998',
-    transition: 'transform 0.1s ease-out',
-    display: 'none',
-    transform: 'translate(-50%, -50%)'
-  });
+  // Create inner element for glow & pulse
+  const cursorGlow = document.createElement('div');
+  cursorGlow.className = 'cursor-glow';
   
-  document.body.appendChild(cursor);
+  cursorWrapper.appendChild(cursorGlow);
+  document.body.appendChild(cursorWrapper);
+  
+  let mouseX = 0;
+  let mouseY = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+  let activated = false;
   
   document.addEventListener('mousemove', (e) => {
-    cursor.style.display = 'block';
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    if (!activated) {
+      cursorX = mouseX;
+      cursorY = mouseY;
+      activated = true;
+      cursorWrapper.classList.add('active');
+    }
   });
+  
+  // Smooth cursor movement using requestAnimationFrame
+  const animate = () => {
+    const dx = mouseX - cursorX;
+    const dy = mouseY - cursorY;
+    
+    cursorX += dx * 0.1;
+    cursorY += dy * 0.1;
+    
+    // Position the wrapper - translate3d is optimized for GPU
+    cursorWrapper.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+    
+    requestAnimationFrame(animate);
+  };
+  
+  animate();
 };
 
 createCursorGlow();
