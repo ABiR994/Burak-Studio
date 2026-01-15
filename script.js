@@ -206,7 +206,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Parallax effect for hero blobs
+// Parallax effect for hero blobs and geometric fragments
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   const blobs = document.querySelectorAll('.blob');
@@ -215,7 +215,51 @@ window.addEventListener('scroll', () => {
     const speed = 0.5 + (index * 0.2);
     blob.style.transform = `translateY(${scrolled * speed}px)`;
   });
+
+  const fragments = document.querySelectorAll('.fragment');
+  fragments.forEach((fragment, index) => {
+    const speed = 0.1 + (index * 0.05);
+    const rotation = scrolled * 0.1;
+    fragment.style.transform = `translateY(${scrolled * speed}px) rotate(${rotation}deg)`;
+  });
 });
+
+// 4. Interactive Geometric Fragments
+const initGeometricFragments = () => {
+  const container = document.getElementById('geometricFragments');
+  if (!container) return;
+
+  const fragmentCount = 15;
+  const shapes = ['circle', 'triangle', 'square'];
+
+  for (let i = 0; i < fragmentCount; i++) {
+    const fragment = document.createElement('div');
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+    const size = Math.random() * 60 + 20;
+    
+    fragment.className = `fragment fragment-${shape}`;
+    
+    Object.assign(fragment.style, {
+      width: `${size}px`,
+      height: `${shape === 'triangle' ? '0' : size + 'px'}`,
+      top: `${Math.random() * 300}%`, // Spread across long page
+      left: `${Math.random() * 100}%`,
+      opacity: Math.random() * 0.4 + 0.1,
+      animationDelay: `${Math.random() * 10}s`,
+      animationDuration: `${Math.random() * 20 + 20}s`
+    });
+
+    if (shape === 'triangle') {
+      fragment.style.borderLeft = `${size / 2}px solid transparent`;
+      fragment.style.borderRight = `${size / 2}px solid transparent`;
+      fragment.style.borderBottom = `${size}px solid rgba(255, 255, 255, 0.15)`;
+    }
+
+    container.appendChild(fragment);
+  }
+};
+
+initGeometricFragments();
 
 const createCursorGlow = () => {
   if (window.innerWidth <= 768) return;
@@ -298,6 +342,12 @@ cards.forEach(card => {
       this.style.transform = `translate3d(${magX}px, ${magY}px, 0) scale(1.05)`;
     } else {
       this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      
+      // Update border rotation for glass-panels
+      if (this.classList.contains('glass-panel')) {
+        const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+        this.style.setProperty('--rotation', `${angle + 90}deg`);
+      }
     }
   });
   
