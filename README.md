@@ -85,26 +85,34 @@ graph TD
 
 ---
 
-## 🚀 Deployment & Operations
+## 🏁 Running the Project
 
-### 1. Environment Setup
+### 1. Live Preview (Local Server)
+
+For the full "Ultimate UI" experience, it is recommended to run the project via a local development server.
 
 ```bash
-# Initialize local environment
+# Option A: Python (Fastest)
+python -m http.server 8000
+
+# Option B: Node.js
+npx serve .
+```
+
+Then visit `http://localhost:8000` in your browser.
+
+### 2. Automation Suite
+
+The project includes a robust execution layer for high-level operations.
+
+```bash
+# Initialize automation environment
 pip install -r requirements.txt
-```
 
-### 2. Performance Audit
-
-```bash
-# Run the deterministic asset audit
+# Execute a performance/asset audit
 python execution/optimize_assets.py --dry-run
-```
 
-### 3. Automated Deployment
-
-```bash
-# Execute multi-platform deployment
+# Trigger the deployment engine
 python execution/deploy_website.py --platform github
 ```
 
