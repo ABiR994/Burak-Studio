@@ -378,4 +378,4 @@ window.addEventListener('scroll', debounce(() => {
 
 // Log loaded message
 console.log('%c🚀 Burak Studio Website Loaded', 'color: #a855f7; font-size: 20px; font-weight: bold;');
-console.log('%cDesigned with ❤️ for premium digital experiences', 'color: #22c55e; font-size: 14px;');
+console.log('%cDesigned for premium digital experiences', 'color: #22c55e; font-size: 14px;');
