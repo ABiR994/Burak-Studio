@@ -5,7 +5,7 @@
 
 <br />
 
-<img src="logo.svg" width="160" height="160" alt="Burak Studio Logo">
+<img src="logo.svg" width="180" height="180" alt="Burak Studio Logo">
 
 <br />
 
@@ -27,34 +27,34 @@
 ## ✨ The "Ultimate UI" Core
 
 - **Interactive Architecture Deep-Dive**  
-  An exploratory 3D-layered explorer in the "About" section. Users can interact with the **Intent**, **Logic**, and **Execution** layers to reveal the underlying operational philosophy.
+  An exploratory 3D-layered explorer in the "About" section. Users can interact with the **Intent**, **Logic**, and **Execution** layers to reveal the underlying operational philosophy of the studio.
 
 - **Neural Network 3.0**  
-  A high-density "agentic connection" system with pulsing nodes and interactive links that react to cursor proximity, representing the invisible logic of the studio.
+  A high-density "agentic connection" system with pulsing nodes and interactive links that react dynamically to cursor proximity and scroll depth, representing the studio's technical nervous system.
 
 - **Secure Uplink Transmission**  
   A reimagined contact interface featuring encryption animations, data-routing sequences, and cryptographic feedback for an immersive communication experience.
 
-- **Audio Micro-interactions**  
-  High-fidelity digital "clicks," interactive "ticks," and a synthesized ambient "data hum" providing subtle tactile feedback as you navigate the flagship.
+- **UI "Soni-fication"**  
+  High-fidelity digital audio feedback. Synthesized clicks, interactive "ticks," and a constant ambient "data hum" provide a rich tactile layer to the digital surface.
+
+- **Atmospheric Gradience**  
+  A "Midnight Vibrant" aesthetic driven by high-luminosity mesh gradients, synchronized radial glows, and liquid background engine for maximum visual depth.
 
 - **Liquid "Gooey" Interactions**  
-  SVG-filtered primary buttons that exhibit organic, liquid-like properties when under magnetic pull, providing a highly tactile and immersive feedback loop.
-
-- **Cinematic Mask Reveal**  
-  Advanced content entry using `clip-path` masks and staggered timing. Every element enters the stage with cinematic precision.
+  SVG-filtered primary buttons and social icons that exhibit organic, liquid-like properties when under magnetic pull, breaking the rigid digital grid.
 
 ---
 
 ## 🤖 3-Layer Agentic Architecture
 
-Burak Studio is built on a structured framework that separates high-level intent from low-level execution, ensuring that AI-driven changes are deterministic, safe, and scalable.
+Burak Studio is architected around a scalable, modular framework that separates human intent from deterministic execution.
 
 | Layer | Responsibility | Implementation |
 | :--- | :--- | :--- |
-| **Layer 1: Intent** | Directives & SOPs | Markdown-based standard operating procedures that define the "What" and "Why." |
-| **Layer 2: Logic** | Orchestration | The routing layer where agents interpret directives and select the optimal execution path. |
-| **Layer 3: Execution** | Deterministic Action | Idempotent Python scripts that perform the actual work with 100% reliability. |
+| **Layer 1: Intent** | Directives & SOPs | Markdown-based standard operating procedures defining "What" and "Why." |
+| **Layer 2: Logic** | Orchestration | The intelligent routing layer where agents interpret intent and select execution paths. |
+| **Layer 3: Execution** | Deterministic Action | Idempotent Python scripts and file utilities that ensure 100% reliable outcomes. |
 
 ---
 
@@ -62,12 +62,12 @@ Burak Studio is built on a structured framework that separates high-level intent
 
 | Category | Implementation |
 | :--- | :--- |
-| **Foundation** | Semantic HTML5 (Accessibility & SEO Focused) |
-| **Styling** | Modern CSS3 (Variables, Mix-Blends, 3D Transforms) |
-| **Logic** | Vanilla JavaScript (GPU-Accelerated & Debounced) |
-| **Automation** | Python 3.10+ (Deployment & Asset Engines) |
-| **Assets** | Pure SVG (Infinite Scalability & Zero Latency) |
-| **Deployment** | GitHub Pages / Vercel Edge Ready |
+| **Foundation** | Semantic HTML5 (Clean, Accessible, SEO-Ready) |
+| **Styling** | Modern CSS3 (3D Transforms, Mix-Blends, GPU Shaders) |
+| **Logic** | Vanilla JavaScript (Event-Driven, Zero-Dependency, 60fps) |
+| **Audio Engine** | Web Audio API (Real-time Synthesis & LFO Modulation) |
+| **Automation** | Python 3.10+ (Deployment & Intelligent Asset Engines) |
+| **Branding** | Faceted SVG (Infinite Scalability & Resolution Independence) |
 
 ---
 
@@ -110,6 +110,6 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 <div align="center">
 
-  🌠 *Crafted with precision by **ABiR994**.*
+  🌠 *Crafted with precision by **ABiR994** at **Burak Studio**.*
 
 </div>
