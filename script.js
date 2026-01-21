@@ -114,15 +114,20 @@ class NeuralNetwork {
   
   init() {
     this.particles = [];
-    const numberOfParticles = (this.canvas.width * this.canvas.height) / 15000;
+    const densityFactor = 10000; // Increased density
+    const numberOfParticles = (this.canvas.width * this.canvas.height) / densityFactor;
     for (let i = 0; i < numberOfParticles; i++) {
-      const size = Math.random() * 2 + 1;
+      const size = Math.random() * 3 + 1; // Larger particles
       const x = Math.random() * this.canvas.width;
       const y = Math.random() * this.canvas.height;
-      const directionX = (Math.random() * 2) - 1;
-      const directionY = (Math.random() * 2) - 1;
-      const color = 'rgba(168, 85, 247, 0.3)';
-      this.particles.push({ x, y, directionX, directionY, size, color });
+      const directionX = (Math.random() * 1) - 0.5; // Slower, more elegant movement
+      const directionY = (Math.random() * 1) - 0.5;
+      const color = Math.random() > 0.5 ? 'rgba(168, 85, 247, 0.4)' : 'rgba(34, 197, 94, 0.3)';
+      this.particles.push({ 
+        x, y, directionX, directionY, size, color,
+        originalSize: size,
+        pulse: Math.random() * Math.PI
+      });
     }
   }
   
@@ -132,15 +137,19 @@ class NeuralNetwork {
     
     for (let i = 0; i < this.particles.length; i++) {
       let p = this.particles[i];
-      p.x += p.directionX * 0.5;
-      p.y += p.directionY * 0.5;
+      p.x += p.directionX;
+      p.y += p.directionY;
       
       if (p.x > this.canvas.width || p.x < 0) p.directionX = -p.directionX;
       if (p.y > this.canvas.height || p.y < 0) p.directionY = -p.directionY;
       
+      // Node Pulse
+      p.pulse += 0.02;
+      const currentSize = p.originalSize + Math.sin(p.pulse) * 1;
+
       // Draw particle
       this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
       this.ctx.fillStyle = p.color;
       this.ctx.fill();
       
@@ -151,10 +160,11 @@ class NeuralNetwork {
         const dy = p.y - p2.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 100) {
+        if (distance < 150) { // Increased connection distance
           this.ctx.beginPath();
-          this.ctx.strokeStyle = `rgba(168, 85, 247, ${1 - distance/100})`;
-          this.ctx.lineWidth = 0.5;
+          const opacity = (1 - distance/150) * 0.5;
+          this.ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
+          this.ctx.lineWidth = 0.8;
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
           this.ctx.stroke();
@@ -167,8 +177,9 @@ class NeuralNetwork {
       const mDistance = Math.sqrt(mdx * mdx + mdy * mdy);
       if (mDistance < this.mouse.radius) {
         this.ctx.beginPath();
-        this.ctx.strokeStyle = `rgba(34, 197, 94, ${1 - mDistance/this.mouse.radius})`;
-        this.ctx.lineWidth = 1;
+        const mOpacity = (1 - mDistance/this.mouse.radius) * 0.8;
+        this.ctx.strokeStyle = `rgba(34, 197, 94, ${mOpacity})`;
+        this.ctx.lineWidth = 1.5;
         this.ctx.moveTo(p.x, p.y);
         this.ctx.lineTo(this.mouse.x, this.mouse.y);
         this.ctx.stroke();
