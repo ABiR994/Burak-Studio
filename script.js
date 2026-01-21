@@ -225,6 +225,7 @@ class AudioManager {
       if (!this.context) {
         this.context = new (window.AudioContext || window.webkitAudioContext)();
         this.enabled = true;
+        this.initAmbientHum();
       }
       if (this.context.state === 'suspended') {
         this.context.resume();
@@ -233,6 +234,32 @@ class AudioManager {
     
     window.addEventListener('mousedown', resume, { once: true });
     window.addEventListener('touchstart', resume, { once: true });
+    window.addEventListener('scroll', resume, { once: true });
+  }
+
+  initAmbientHum() {
+    if (!this.enabled) return;
+    const osc = this.context.createOscillator();
+    const lfo = this.context.createOscillator();
+    const gain = this.context.createGain();
+    const lfoGain = this.context.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(40, this.context.currentTime);
+
+    lfo.type = 'sine';
+    lfo.frequency.setValueAtTime(0.5, this.context.currentTime);
+    lfoGain.gain.setValueAtTime(5, this.context.currentTime);
+
+    gain.gain.setValueAtTime(0.005, this.context.currentTime);
+
+    lfo.connect(lfoGain);
+    lfoGain.connect(osc.frequency);
+    osc.connect(gain);
+    gain.connect(this.context.destination);
+
+    osc.start();
+    lfo.start();
   }
   
   playTick() {
@@ -286,6 +313,19 @@ const initAudioEvents = () => {
 };
 
 initAudioEvents();
+
+// 5. Secure Input Feedback
+const initSecureInputs = () => {
+  const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', () => audio.playTick());
+    input.addEventListener('input', debounce(() => {
+      audio.playTick();
+    }, 100));
+  });
+};
+
+initSecureInputs();
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
@@ -392,8 +432,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    const submitBtn = contactForm.querySelector('button');
+    const originalText = submitBtn.innerText;
+    
+    // Secure Uplink Sequence
+    submitBtn.disabled = true;
+    const fx = new TextScramble(submitBtn);
+    
+    await fx.setText('ENCRYPTING DATA...');
+    audio.playClick();
+    
+    await new Promise(r => setTimeout(r, 800));
+    await fx.setText('ROUTING TO AGENT...');
+    audio.playTick();
+    
+    await new Promise(r => setTimeout(r, 800));
+    await fx.setText('UPLINK ESTABLISHED');
+    audio.playClick();
     
     // Get form values
     const name = document.getElementById('name').value;
@@ -404,17 +462,19 @@ if (contactForm) {
     // Basic validation
     if (!name || !email || !subject || !message) {
       showNotification('Please fill in all fields', 'error');
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalText;
       return;
     }
     
-    if (!isValidEmail(email)) {
-      showNotification('Please enter a valid email address', 'error');
-      return;
-    }
-    
-    // Success simulation (replace with actual form submission)
-    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+    // Success simulation
+    showNotification('Transmission Received. Strategy Agent assigned.', 'success');
     contactForm.reset();
+    
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalText;
+    }, 2000);
   });
 }
 
