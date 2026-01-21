@@ -26,17 +26,20 @@
 
 ## ✨ The "Ultimate UI" Core
 
-- **Liquid Mesh Aesthetic**  
-  A "Midnight" background system driven by synchronized radial gradients and a flowing mesh animation. We use depth, luxury noise, and subtle ambient glows to create an atmosphere of premium authority.
+- **Neural Network Background**  
+  A live-calculated "agentic connection" system where nodes and links respond dynamically to cursor proximity. It represents the invisible logic that powers modern digital orchestration.
 
-- **3D Glassmorphism 2.0**  
-  Frosted-glass interfaces featuring dynamic border glows that track cursor position. Combined with real-time perspective transforms, these components provide a tangible, tactile presence.
+- **Text Scramble & Decrypt**  
+  Sophisticated character-cycling animations for section headers that simulate real-time AI data processing. It brings a sense of high-intent computation to every interaction.
 
-- **Kinetic Micro-animations**  
-  Every interaction is engineered for 60fps performance. From magnetic navigation fields to dual-layer cursor lighting, the UI responds with high-fidelity feedback and hardware-accelerated motion.
+- **Liquid "Gooey" Interactions**  
+  SVG-filtered primary buttons that exhibit organic, liquid-like properties when under magnetic pull, providing a highly tactile and immersive feedback loop.
 
-- **Geometric Parallax**  
-  Procedurally generated geometric fragments float and rotate based on scroll depth, creating a sophisticated 3D environment that adds visual depth without layout thrashing.
+- **Staggered Mask Reveal**  
+  Advanced content entry using `clip-path` masks and staggered timing. Every element enters the stage with cinematic precision, ensuring a synchronized and premium visual flow.
+
+- **Atmospheric Depth of Field**  
+  Dynamic blurring of geometric background elements based on their parallax Z-depth. This creates a realistic 3D camera effect that adds infinite depth to the "Midnight" aesthetic.
 
 - **Deterministic Optimization**  
   No frameworks. No bloat. Pure, optimized Vanilla JavaScript and CSS3 properties ensure zero layout-thrashing and maximum efficiency across all devices.
@@ -45,13 +48,13 @@
 
 ## 🤖 3-Layer Agentic Architecture
 
-The project is built around a scalable, modular architecture that separates human intent from deterministic execution, bridging the gap between design and code.
+Burak Studio is built on a structured framework that separates high-level intent from low-level execution, ensuring that AI-driven changes are deterministic, safe, and scalable.
 
 | Layer | Responsibility | Implementation |
 | :--- | :--- | :--- |
-| **Layer 1: Intent** | Directives & SOPs | Markdown-based standard operating procedures |
-| **Layer 2: Logic** | Orchestration | AI-Agent routing and decision engine |
-| **Layer 3: Execution** | Deterministic Action | Idempotent Python scripts & file utilities |
+| **Layer 1: Intent** | Directives & SOPs | Markdown-based standard operating procedures that define the "What" and "Why." |
+| **Layer 2: Logic** | Orchestration | The routing layer where agents interpret directives and select the optimal execution path. |
+| **Layer 3: Execution** | Deterministic Action | Idempotent Python scripts that perform the actual work with 100% reliability. |
 
 ---
 
@@ -68,7 +71,7 @@ The project is built around a scalable, modular architecture that separates huma
 
 ---
 
-## 🛠️ Deployment & Setup
+## 🏁 Running the Project
 
 1. **Clone the Studio Repository**:
    ```bash
@@ -83,7 +86,7 @@ The project is built around a scalable, modular architecture that separates huma
    ```
    *Visit `http://localhost:8000` to explore the flagship.*
 
-3. **Automation Environment**:
+3. **Automation Suite**:
    ```bash
    pip install -r requirements.txt
    python execution/deploy_website.py --platform github
@@ -110,5 +113,3 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
   🌠 *Crafted with precision by **ABiR994**.*
 
 </div>
-
----
