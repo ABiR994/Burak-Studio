@@ -2,6 +2,183 @@
 // BURAK STUDIO - INTERACTIVE FUNCTIONALITY
 // ==========================================
 
+// ==========================================
+// 1. Text Scramble Effect
+// ==========================================
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => (this.resolve = resolve));
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar();
+          this.queue[i].char = char;
+        }
+        output += `<span class="scramble-char">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+// Apply scramble to headings
+const initScramble = () => {
+  const headings = document.querySelectorAll('.section-title, .hero-title .kinetic-text:not(.gradient-text)');
+  headings.forEach(heading => {
+    const fx = new TextScramble(heading);
+    const originalText = heading.innerText;
+    
+    heading.addEventListener('mouseenter', () => fx.setText(originalText));
+    
+    // Initial scramble on reveal
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => fx.setText(originalText), 500);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(heading);
+    }
+  });
+};
+
+initScramble();
+
+// ==========================================
+// 2. Neural Network Background
+// ==========================================
+class NeuralNetwork {
+  constructor() {
+    this.canvas = document.getElementById('neuralNetwork');
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+    this.particles = [];
+    this.mouse = { x: null, y: null, radius: 150 };
+    
+    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.x;
+      this.mouse.y = e.y;
+    });
+    
+    this.resize();
+    this.init();
+    this.animate();
+  }
+  
+  resize() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+  
+  init() {
+    this.particles = [];
+    const numberOfParticles = (this.canvas.width * this.canvas.height) / 15000;
+    for (let i = 0; i < numberOfParticles; i++) {
+      const size = Math.random() * 2 + 1;
+      const x = Math.random() * this.canvas.width;
+      const y = Math.random() * this.canvas.height;
+      const directionX = (Math.random() * 2) - 1;
+      const directionY = (Math.random() * 2) - 1;
+      const color = 'rgba(168, 85, 247, 0.3)';
+      this.particles.push({ x, y, directionX, directionY, size, color });
+    }
+  }
+  
+  animate() {
+    requestAnimationFrame(() => this.animate());
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    for (let i = 0; i < this.particles.length; i++) {
+      let p = this.particles[i];
+      p.x += p.directionX * 0.5;
+      p.y += p.directionY * 0.5;
+      
+      if (p.x > this.canvas.width || p.x < 0) p.directionX = -p.directionX;
+      if (p.y > this.canvas.height || p.y < 0) p.directionY = -p.directionY;
+      
+      // Draw particle
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.fillStyle = p.color;
+      this.ctx.fill();
+      
+      // Connect lines
+      for (let j = i; j < this.particles.length; j++) {
+        let p2 = this.particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 100) {
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = `rgba(168, 85, 247, ${1 - distance/100})`;
+          this.ctx.lineWidth = 0.5;
+          this.ctx.moveTo(p.x, p.y);
+          this.ctx.lineTo(p2.x, p2.y);
+          this.ctx.stroke();
+        }
+      }
+      
+      // Connect to mouse
+      const mdx = p.x - this.mouse.x;
+      const mdy = p.y - this.mouse.y;
+      const mDistance = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (mDistance < this.mouse.radius) {
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = `rgba(34, 197, 94, ${1 - mDistance/this.mouse.radius})`;
+        this.ctx.lineWidth = 1;
+        this.ctx.moveTo(p.x, p.y);
+        this.ctx.lineTo(this.mouse.x, this.mouse.y);
+        this.ctx.stroke();
+      }
+    }
+  }
+}
+
+new NeuralNetwork();
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
@@ -220,7 +397,12 @@ window.addEventListener('scroll', () => {
   fragments.forEach((fragment, index) => {
     const speed = 0.1 + (index * 0.05);
     const rotation = scrolled * 0.1;
-    fragment.style.transform = `translateY(${scrolled * speed}px) rotate(${rotation}deg)`;
+    const yPos = scrolled * speed;
+    
+    // Atmospheric Depth of Field: Dynamic blur based on scroll/speed
+    const blurAmount = Math.abs(Math.sin(scrolled * 0.001 + index)) * 4;
+    fragment.style.filter = `blur(${blurAmount}px)`;
+    fragment.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
   });
 });
 
@@ -313,7 +495,7 @@ const createCursorGlow = () => {
 createCursorGlow();
 
 // 3. Magnetic & Shine Card Effects
-const cards = document.querySelectorAll('.service-card, .portfolio-item, .stat-item, .info-card, .btn');
+const cards = document.querySelectorAll('.service-card, .portfolio-item, .stat-item, .info-card, .btn, .social-icon');
 
 cards.forEach(card => {
   card.addEventListener('mousemove', function(e) {
@@ -335,11 +517,12 @@ cards.forEach(card => {
     const rotateX = (y - centerY) / 10;
     const rotateY = (centerX - x) / 10;
     
-    // Magnetic pull for buttons specifically
-    if (this.classList.contains('btn')) {
-      const magX = (x - centerX) * 0.6;
-      const magY = (y - centerY) * 0.6;
-      this.style.transform = `translate3d(${magX}px, ${magY}px, 0) scale(1.05)`;
+    // Magnetic pull for buttons and social icons
+    if (this.classList.contains('btn') || this.classList.contains('social-icon')) {
+      const strength = this.classList.contains('social-icon') ? 0.4 : 0.6;
+      const magX = (x - centerX) * strength;
+      const magY = (y - centerY) * strength;
+      this.style.transform = `translate3d(${magX}px, ${magY}px, 0) scale(1.1)`;
     } else {
       this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
       
