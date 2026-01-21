@@ -1,7 +1,7 @@
 # 🚀 Burak Studio  
 ### Premium AI-Native Digital Flagship  
 
-![Burak Studio Logo](logo.png)
+![Burak Studio Logo](logo.svg)
 
 > **Elevating modern web presence through state-of-the-art design and deterministic orchestration.**
 

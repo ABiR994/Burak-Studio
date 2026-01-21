@@ -35,7 +35,7 @@ class WebsiteDeployer:
         'index.html',
         'styles.css',
         'script.js',
-        'logo.png'
+        'logo.svg'
     ]
     
     def __init__(self, platform: str = 'github'):

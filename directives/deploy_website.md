@@ -6,7 +6,7 @@ Deploy the Burak Studio website to a hosting platform (GitHub Pages, Vercel, Net
 
 ## Inputs
 
-- Website files: `index.html`, `styles.css`, `script.js`, `logo.png`
+- Website files: `index.html`, `styles.css`, `script.js`, `logo.svg`
 - Target platform (GitHub Pages / Vercel / Netlify)
 - Domain configuration (optional)
 

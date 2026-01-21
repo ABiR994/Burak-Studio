@@ -64,7 +64,7 @@ class FileUtils:
             return False
     
     @staticmethod
-    def list_files(directory: str, extension: str = None) -> List[str]:
+    def list_files(directory: str, extension: str | None = None) -> List[str]:
         """List all files in directory, optionally filtered by extension"""
         try:
             files = []
@@ -114,7 +114,7 @@ if __name__ == "__main__":
         'index.html',
         'styles.css',
         'script.js',
-        'logo.png'
+        'logo.svg'
     ]
     
     print("\nVerifying website files:")
