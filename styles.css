@@ -1335,8 +1335,93 @@ section {
 }
 
 /* ==========================================
-   ADVANCED UI EFFECTS
+   INTERACTIVE ARCHITECTURE
    ========================================== */
+.architecture-explorer {
+  margin-top: var(--spacing-lg);
+  perspective: 2000px;
+}
+
+.layer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-layer {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: var(--spacing-md);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.arch-layer:hover::before {
+  transform: translateX(100%);
+}
+
+.arch-layer.active {
+  background: rgba(168, 85, 247, 0.05);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateZ(50px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.layer-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.layer-content {
+  color: var(--color-text-secondary);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.arch-layer.active .layer-content {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: var(--spacing-sm);
+}
+
+.layer-tags {
+  display: flex;
+  gap: var(--spacing-xs);
+  list-style: none;
+  margin-top: var(--spacing-sm);
+}
+
+.layer-tags li {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .cursor-wrapper {
   position: fixed;
   top: 0;

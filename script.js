@@ -190,6 +190,28 @@ class NeuralNetwork {
 
 new NeuralNetwork();
 
+// ==========================================
+// 3. Interactive Architecture Explorer
+// ==========================================
+const initArchExplorer = () => {
+  const layers = document.querySelectorAll('.arch-layer');
+  layers.forEach(layer => {
+    layer.addEventListener('click', () => {
+      layers.forEach(l => {
+        if (l !== layer) l.classList.remove('active');
+      });
+      layer.classList.toggle('active');
+    });
+  });
+  
+  // Set first layer active by default
+  if (layers.length > 0) {
+    layers[0].classList.add('active');
+  }
+};
+
+initArchExplorer();
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
