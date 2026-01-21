@@ -14,8 +14,8 @@
 
 :root {
   /* Colors */
-  --color-bg: #050505;
-  --color-bg-secondary: #0a0a0a;
+  --color-bg: #020202;
+  --color-bg-secondary: #040404;
   --color-text: #f8fafc;
   --color-text-secondary: #cbd5e1;
   --color-border: rgba(255, 255, 255, 0.05);
@@ -23,15 +23,15 @@
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
-  --gradient-mesh: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                   radial-gradient(at 50% 0%, hsla(225,39%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 100% 0%, hsla(339,49%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 0% 50%, hsla(225,39%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 50% 50%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                   radial-gradient(at 100% 50%, hsla(225,39%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 0% 100%, hsla(339,49%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 50% 100%, hsla(225,39%,12%,1) 0, transparent 50%), 
-                   radial-gradient(at 100% 100%, hsla(253,16%,7%,1) 0, transparent 50%);
+  --gradient-mesh: radial-gradient(at 0% 0%, hsla(253,16%,3%,1) 0, transparent 50%), 
+                   radial-gradient(at 50% 0%, hsla(225,39%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 100% 0%, hsla(339,49%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 0% 50%, hsla(225,39%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 50% 50%, hsla(253,16%,3%,1) 0, transparent 50%), 
+                   radial-gradient(at 100% 50%, hsla(225,39%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 0% 100%, hsla(339,49%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 50% 100%, hsla(225,39%,5%,1) 0, transparent 50%), 
+                   radial-gradient(at 100% 100%, hsla(253,16%,3%,1) 0, transparent 50%);
   
   --gradient-radial-purple: radial-gradient(
     circle at 15% 50%,
