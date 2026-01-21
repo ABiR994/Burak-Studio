@@ -106,5 +106,9 @@ Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 ---
 
 <div align="center">
-  🌠 *Crafted with precision by **ABiR994** at **Burak Studio**.*
+
+  🌠 *Crafted with precision by **ABiR994**.*
+
 </div>
+
+---
